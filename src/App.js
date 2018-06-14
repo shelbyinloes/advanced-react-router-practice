@@ -1,6 +1,15 @@
 import React from "react";
 import TopNav from "./components/TopNav";
 import SideNav from "./components/SideNav";
+import Dashboard from "./components/Dashboard";
+// import Charts from "./components/Charts";
+// import Tables from "./components/Tables";
+// import Settings from "./components/Settings";
+// import Wall from "./components/Wall";
+// import Marquee from "./components/Marquee/:id";
+// import Profile from "./profile/:id";
+import Profiles from "./components/Profiles";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +20,14 @@ function App() {
           <SideNav />
         </nav>
         <div style={{backgroundColor: "white"}}>
-          {/* PUT YOUR ROUTES HERE */}
+          <BrowserRouter>
+            <div>
+              <Switch>
+                <Route path="/profile/:id" component={Profiles} />
+                <Route path="/" component={Dashboard} />
+              </Switch>
+            </div>
+          </BrowserRouter>
         </div>
       </div>
     </div>
